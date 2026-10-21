@@ -70,3 +70,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+
+response = requests.post(
+    f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    json={
+        "chat_id": "@NabzeKhabar1",
+        "text": "✅ تست موفق!\n\n🔴 ربات نبض خبر به کانال متصل شد.",
+    },
+    timeout=20,
+)
+print("Telegram test:", response.status_code, response.text)
+response.raise_for_status()
